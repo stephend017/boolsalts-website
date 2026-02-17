@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Pill from "./Pill";
 
-export default function ProductCard({ product, i }) {
+export default function ProductCard({ product, i }: { product: any; i: number }) {
     const [hovered, setHovered] = useState<number | null>(null);
     return (<Link
               key={i}
@@ -80,7 +80,7 @@ export default function ProductCard({ product, i }) {
 
                 {/* Badges */}
                 <div className="flex flex-wrap gap-2 mb-8">
-                  {product.badges.map((badge) => (
+                  {product.badges.map((badge: any) => (
                     <Pill key={badge} color={product.color}>{badge}</Pill>
                   ))}
                 </div>

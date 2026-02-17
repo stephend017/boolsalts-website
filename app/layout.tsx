@@ -18,12 +18,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "bool | Hydration Salts for Workdays, Workouts & Weekends",
   description:
-    "Clinical-strength hydration with nootropics. Engineered in the Netherlands. Stress-tested in NYC.",
-  openGraph: {
-    title: "bool | Hydration Salts",
-    description: "Electrolytes, upgraded. This is what 'I'm back' feels like.",
-    images: ["/og-image.jpg"],
-  },
+    "Clinical-strength hydration with nootropics. Engineered in the Netherlands. Stress-tested in NYC."
 };
 
 export default function RootLayout({
