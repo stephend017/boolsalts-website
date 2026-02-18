@@ -6,7 +6,7 @@ import ProductClient from "@/components/ProductClient";
 import { products, getProduct } from "@/lib/products";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -14,7 +14,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = getProduct(params.slug);
+  const { slug} = await params;
+
+  const product = getProduct(slug);
   if (!product) return { title: "Product Not Found | bool" };
   return {
     title: `${product.name} | bool Hydration Salts`,
@@ -27,11 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ProductPage({ params }: Props) {
-  const product = getProduct(params.slug);
+export default async function ProductPage({ params }: Props) {
+  const { slug} = await params;
+
+  const product = getProduct(slug);
   if (!product) notFound();
 
-  const otherProduct = products.find((p) => p.slug !== params.slug);
+  const otherProduct = products.find((p) => p.slug !== slug);
 
   return (
     <main>
