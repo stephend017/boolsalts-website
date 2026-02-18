@@ -45,7 +45,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="animated-underline font-display-normal text-lg tracking-[0.2em] text-bool-white/80 hover:text-bool-white transition-colors"
+                className="animated-underline hover:italic font-display-normal text-lg tracking-[0.2em] text-bool-white/80 hover:text-bool-white transition-colors"
               >
                 {item.label}
               </Link>
